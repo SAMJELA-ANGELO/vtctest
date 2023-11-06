@@ -1,0 +1,53 @@
+<div class="h-screen flex flex-col items-center justify-center bg-cover bg-no-repeat w-screen flex-shrink-0 overflow-auto bg-image">
+  <div class="flex">
+    <ng-container *ngFor="let image of images">
+      <img [src]="image" alt="Image" class="mx-40 w-fit h-fit">
+    </ng-container>
+  </div>
+  <div *ngIf="successMessage || errorMessage" class="flex flex-col items-start w-96 h-20 -mb-20 rounded-md" [ngClass]="{'bg-green-900': successMessage, 'bg-red-900': errorMessage}">
+    <div *ngIf="successMessage" class="text-lg font-bold text-green-700">
+      Félicitations !
+    </div>
+
+    <div *ngIf="successMessage" class="text-base text-md text-green-800">
+      Félicitations ! Vous avez réussi à vous connecter avec succès à votre compte hautement sécurisé et privé.
+    </div>
+
+    <div *ngIf="errorMessage" class="text-lg font-bold">
+      Erreur, d'accès non autorisée
+    </div>
+
+    <div *ngIf="errorMessage" class="text-base">
+      Votre mot de passe est incorrecte
+    </div>
+  </div>
+  <div class="mt-32 items-center justify-center gap-7">
+    <div class="flex flex-col gap-2 w-96">
+      <label for="username" class="text-white font-mono text-lg font-medium">Identification de l'utilisateur</label>
+      <input type="text" id="username" class="flex-1 w-96 p-2" placeholder="votre identifiant">
+    </div>
+  </div>
+  <div class="">
+    <div class="flex flex-col gap-2 py-5 w-96">
+      <label for="password" class="text-white font-mono text-lg font-medium">Mot de passe</label>
+      <input type="password" id="password" class="flex-1 w-96 p-2" placeholder="Votre mot de passe ici">
+    </div>
+    <button type="submit" class="flex items-center justify-center text-gray-600 bg-blue-700 w-96 gap-10 font-bold p-2 hover:bg-blue-200 hover" style="color: #F7F7F7; font-weight: bold;" (click)="authenticate()">Se connecter</button>
+  </div>
+  <div class="mt-4">
+    <a href="#" class="flex justify-center items-center gap-2 text-white underline underline-offset-4">Problèmes de connexion ? Cliquez Ici !</a>
+  </div>
+  <div class="flex justify-center items-center gap-2 mt-10 mb-5">
+    <select id="dropdown" class="w-52 p-2 bg-blue-700 text-white rounded-md">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+    </select>
+  </div>
+  <div class="text-white text-center font-terminus font-semibold text-base w-[60rem]">
+    <p>
+      Vous entrez dans un système sécurisé de la Délégation Générale à la Sûreté Nationale (DGSN) du Cameroun qui ne peut être utilisé qu'à des fins autorisées. La modification de toute information sur ce système est passible de poursuites pénales. La DGSN surveille toutes les utilisations de ce système. Toutes les personnes sont informées que l'utilisation de ce système constitue un consentement à une telle surveillance et à une telle audition.
+    </p>
+    <div class="border-b-amber-800 h-10 -mt-6" style="border-bottom: 3px solid #FDC655"></div>
+  </div>
+
+</div>

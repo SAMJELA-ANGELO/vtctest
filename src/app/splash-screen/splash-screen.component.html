@@ -1,0 +1,39 @@
+<ng-container *ngIf="!loaded; else content">
+  <div class="h-screen flex items-center justify-center">
+    <ng-container *ngFor="let image of images; let i = index">
+      <img [src]="image" alt="Image {{ i + 1 }}" class="mx-4 opacity-0 transition-opacity fade-in-delay-{{ i + 1 }}">
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #content style="background: url('assets/images/cam_map.png')">
+  <div class="h-screen flex flex-col items-center justify-center">
+    <form class="bg-white p-4 rounded-lg w-[30rem]" style="text-align: center;">
+      <div class="flex items-center justify-center mb-4">
+<!--          <img [src]="image" alt="Image {{ i + 1}}" class="mx-2" style="width: 100px; height: 100px;">-->
+         <img src="assets/images/spartaan.png" class="-ml-5"  style="width: 100px; height: 100px;">
+         <img src="assets/images/img.png"style="width: 200px; height: 100px;" >
+         <img src="assets/images/logo_text.png" class="-mr-5"  style="width: 100px; height: 100px;">
+      </div>
+
+      <div class="text" style="color: #444545; text-align: center; font-family: IBM Plex Mono; font-size: 13px; font-style: normal; font-weight: 400; line-height: normal; margin-bottom: 1rem;">
+        Un système de gestion de renseignements <br class="mt-2"> criminels et d'analyse de données
+      </div>
+
+      <h1 class="text" style="color: var(--navy-blue, #004EAE); text-align: center; font-family: IBM Plex Mono; font-size: 24px; font-style: normal; font-weight: 500; line-height: normal; margin-bottom: 1rem;">
+        Welcome / Bienvenue
+      </h1>
+
+      <div class="text" style="color: #000; text-align: center; font-family: IBM Plex Mono; font-size: 16px; font-style: normal; font-weight: 400; line-height: normal; margin-bottom: 1rem;">
+        Choose your preferred language / Choisissez votre langue
+      </div>
+
+      <div class="flex items-center justify-center w-1/2 " style="margin-left: 25%">
+        <select id="dropdown" class="p-2 bg-blue-700 border w-52 border-white rounded text-white" [(ngModel)]="selectedLanguage" (change)="onLanguageChange($event)">
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </form>
+  </div>
+</ng-template>
