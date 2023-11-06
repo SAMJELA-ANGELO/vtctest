@@ -44,7 +44,7 @@ export class SplashScreenComponent implements OnInit {
 
   onLanguageChange(event: any) {
     const language = event.target.value;
-    if (language === 'fr') {
+    if (language === 'fr'|| 'en') {
       this.router.navigate(['/login']);
     }
   }
