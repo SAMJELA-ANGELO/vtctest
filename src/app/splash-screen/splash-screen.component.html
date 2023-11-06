@@ -1,4 +1,4 @@
-<ng-container *ngIf="!loaded; else content">
+<ng-container *ngIf="!loaded;  else content" [ngStyle]="{'background-image': content ? 'url(assets/images/cam_map.png)' : 'none'}">
   <div class="h-screen flex items-center justify-center">
     <ng-container *ngFor="let image of images; let i = index">
       <img [src]="image" alt="Image {{ i + 1 }}" class="mx-4 opacity-0 transition-opacity fade-in-delay-{{ i + 1 }}">
@@ -6,7 +6,7 @@
   </div>
 </ng-container>
 
-<ng-template #content style="background: url('assets/images/cam_map.png')">
+<ng-template #content>
   <div class="h-screen flex flex-col items-center justify-center">
     <form class="bg-white p-4 rounded-lg w-[30rem]" style="text-align: center;">
       <div class="flex items-center justify-center mb-4">
